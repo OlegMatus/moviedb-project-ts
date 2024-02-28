@@ -1,4 +1,4 @@
-export * from "./Movie";
+export * from "./MovieCard";
 export * from "./MovieInfo";
-export * from "./Movies"
+export * from "./MoviesList"
 

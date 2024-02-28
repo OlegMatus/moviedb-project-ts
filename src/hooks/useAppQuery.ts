@@ -1,7 +1,7 @@
-import {useSearchParams} from "react-router-dom";
+import {SetURLSearchParams, useSearchParams} from "react-router-dom";
 
 const useAppQuery = () => {
-    const [query, setQuery] = useSearchParams({page: '1'});
+    const [query, setQuery]:[URLSearchParams, SetURLSearchParams] = useSearchParams({page: '1'});
 
     const page = query.get('page')
 

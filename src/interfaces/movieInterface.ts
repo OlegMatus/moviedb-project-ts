@@ -1,4 +1,6 @@
-export interface IMovie {
+import {IGenre} from "./genreInterface";
+
+export interface IMovie extends IMovies{
     id: number,
     adult: boolean,
     backdrop_path: string,
@@ -8,9 +10,16 @@ export interface IMovie {
     overview: string,
     popularity: number,
     poster_path: string,
-    release_date: Date,
+    release_date: string,
     title: string,
     video: boolean,
     vote_average: number,
-    vote_count: number
+    vote_count: number,
+    genres: IGenre[];
+}
+
+export interface IMovies {
+    // page: number,
+       results: IMovie[]
+
 }

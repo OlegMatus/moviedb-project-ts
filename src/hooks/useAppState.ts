@@ -1,11 +1,9 @@
 import {useState} from "react";
 
-import {ISetState, IStateResult} from "../types/setStateType";
+import {IStateResult} from "../types";
 
-const useAppState = <T>(): IStateResult<T> => {
-    const [state, setState] = useState<T>(null);
-    return [state, setState]
-}
+
+const useAppState = <T>(initialState: T): IStateResult<T> => useState<T>(initialState);
 
 export {
     useAppState
