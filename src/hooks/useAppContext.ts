@@ -1,25 +1,12 @@
 import {useContext} from "react";
+
 import {Context, ContextState} from "../hoc";
 import {IContextProps} from "../interfaces";
+import {IStateResult} from "../types";
 
-const useAppContext = (): IContextProps => {
+const useAppContext = (): IContextProps => useContext(Context)
+const useStateContext = (): IStateResult<IContextProps> => useContext(ContextState)
 
-    const context = useContext(Context);
-    if (!context) {
-        throw new Error('useAppContext must be used within a YourHigherOrderComponent');
-    }
-
-    return context;
-};
-
-const useStateContext = () => {
-    const context = useContext(ContextState);
-    if (!context) {
-        throw new Error('useAppContext must be used within a YourHigherOrderComponent');
-    }
-
-    return context;
-}
 export {
     useAppContext,
     useStateContext

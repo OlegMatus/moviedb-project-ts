@@ -5,7 +5,7 @@ interface IProps extends PropsWithChildren {
     movie: IMovie
 }
 
-const Movie: FC<IProps> = ({movie}) => {
+const MovieCard: FC<IProps> = ({movie}) => {
     const {id, title} = movie;
 
     return (
@@ -16,4 +16,4 @@ const Movie: FC<IProps> = ({movie}) => {
     );
 };
 
-export {Movie};
+export {MovieCard};

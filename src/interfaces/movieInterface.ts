@@ -1,6 +1,6 @@
 import {IGenre} from "./genreInterface";
 
-export interface IMovie extends IMovies{
+export interface IMovie extends IMovies {
     id: number,
     adult: boolean,
     backdrop_path: string,
@@ -19,7 +19,7 @@ export interface IMovie extends IMovies{
 }
 
 export interface IMovies {
-    // page: number,
-       results: IMovie[]
+    page: number,
+    results: IMovie[]
 
 }

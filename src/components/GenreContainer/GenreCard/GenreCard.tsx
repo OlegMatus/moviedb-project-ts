@@ -5,13 +5,13 @@ interface IProps extends PropsWithChildren {
 
 }
 
-const GenreBadge: FC<IProps> = () => {
+const GenreCard: FC<IProps> = () => {
 
     return (
         <div>
-            GenreBadge
+            GenreCard
         </div>
     );
 };
 
-export {GenreBadge};
+export {GenreCard};

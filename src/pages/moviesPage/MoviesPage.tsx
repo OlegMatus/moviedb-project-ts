@@ -1,7 +1,7 @@
 import React from 'react';
 import {FC, PropsWithChildren} from 'react';
 
-import {Movies} from "../../components";
+import {MoviesList} from "../../components";
 
 interface IProps extends PropsWithChildren {
 
@@ -11,7 +11,7 @@ const MoviesPage: FC<IProps> = () => {
 
     return (
         <div>
-          <Movies/>
+          <MoviesList/>
         </div>
     );
 };

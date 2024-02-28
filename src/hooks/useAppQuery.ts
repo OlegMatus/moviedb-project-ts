@@ -1,4 +1,5 @@
 import {SetURLSearchParams, useSearchParams} from "react-router-dom";
+import {QueryParams} from "../types/queryParamsType";
 
 const useAppQuery = () => {
     const [query, setQuery]:[URLSearchParams, SetURLSearchParams] = useSearchParams({page: '1'});
@@ -15,7 +16,7 @@ const useAppQuery = () => {
             prev.set('page', (+prev.get('page') + 1).toString());
             return prev
         })
-    }
+    } as QueryParams
 }
 
 export {
