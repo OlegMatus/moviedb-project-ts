@@ -1,8 +1,7 @@
 import React, {FC, PropsWithChildren, useEffect} from 'react';
-import {useParams} from "react-router-dom";
 
 import {MovieCard} from "../MovieCard";
-import {useAppContext} from "../../../hooks";
+import {useAppContext, useAppQuery} from "../../../hooks";
 import {GenreBadge} from "../../GenreContainer";
 
 
@@ -12,7 +11,7 @@ interface IProps extends PropsWithChildren {
 
 const MoviesList: FC<IProps> = () => {
     const {movies, getMovies, genres, getGenres} = useAppContext();
-    const {genreId, page} = useParams()
+    const {page} = useAppQuery();
 
     useEffect(() => {
         getMovies(+page);
@@ -20,7 +19,7 @@ const MoviesList: FC<IProps> = () => {
 
 
     useEffect(() => {
-        getGenres(+genreId)
+        getGenres()
 
     }, []);
 

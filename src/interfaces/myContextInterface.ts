@@ -5,5 +5,5 @@ export interface IContextProps {
     movies: IMovie[];
     genres: IGenre[];
     getMovies: (page: number) => Promise<void>;
-    getGenres: (genres_ids: number) => Promise<void>;
+    getGenres: () => Promise<void>;
 }

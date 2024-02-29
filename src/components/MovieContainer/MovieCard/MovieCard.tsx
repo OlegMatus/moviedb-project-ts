@@ -6,12 +6,12 @@ interface IProps extends PropsWithChildren {
 }
 
 const MovieCard: FC<IProps> = ({movie}) => {
-    const {id, title} = movie;
+    const {id, original_title} = movie;
 
     return (
         <div>
             <div>id: {id}</div>
-            <div>title: {title}</div>
+            <div>title: {original_title}</div>
         </div>
     );
 };

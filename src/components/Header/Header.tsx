@@ -6,10 +6,12 @@ import css from "./Header.module.css"
 const Header = () => {
 
     return (
-        <div className={css.Header}>
-            <NavLink to={'movies'}/>
-            <NavLink to={'genres'}/>
-            <NavLink to={'searchMovie'}/>
+        <div className={css.Main}>
+            <div className={css.Header}>
+                <NavLink to={'movies'}>MOVIES</NavLink>
+                <NavLink to={'genres'}>GENRES</NavLink>
+                <NavLink to={'searchMovie'}>SEARCH</NavLink>
+            </div>
         </div>
     );
 };

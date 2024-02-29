@@ -3,14 +3,10 @@ import {AxiosError} from "axios";
 import {IContextProps, IGenre, IGenres, IMovie, IMovies} from "../interfaces";
 import {genresService, moviesService} from "../services";
 import {useAppState} from "./useAppState";
-import {useAppQuery} from "./useAppQuery";
 
 const useGetMoviesAndGenres = (): IContextProps => {
     const [movies, setMovies] = useAppState<IMovie[]>([]);
     const [genres, setGenres] = useAppState<IGenre[]>([]);
-    const [currentPage, setCurrentPage] = useAppState<number>(1);
-    const [totalPages, setTotalPages] = useAppState<number>(1);
-    const {page, prevPage, nextPage} = useAppQuery();
 
     const getMovies = async (page: number) => {
         try {
@@ -28,7 +24,7 @@ const useGetMoviesAndGenres = (): IContextProps => {
         }
     };
 
-    const getGenres = async (genreId: number) => {
+    const getGenres = async () => {
         try {
             const response = await genresService.getAll().then();
             const genresData: IGenres = response.data;
