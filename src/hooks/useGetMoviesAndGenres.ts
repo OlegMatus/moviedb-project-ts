@@ -8,9 +8,9 @@ const useGetMoviesAndGenres = (): IContextProps => {
     const [movies, setMovies] = useAppState<IMovie[]>([]);
     const [genres, setGenres] = useAppState<IGenre[]>([]);
 
-    const getMovies = async (page: number) => {
+    const getMovies = async (page: number, pageSize: number) => {
         try {
-            const response = await moviesService.getAll(page).then()
+            const response = await moviesService.getAll(page, pageSize).then()
             const moviesData: IMovies = response.data;
 
             if (moviesData && moviesData.results) {

@@ -2,8 +2,7 @@ import React, {FC, PropsWithChildren, useEffect} from 'react';
 
 import {MovieCard} from "../MovieCard";
 import {useAppContext, useAppQuery} from "../../../hooks";
-import {GenreBadge} from "../../GenreContainer";
-
+import css from "./MoviesList.module.css"
 
 interface IProps extends PropsWithChildren {
 
@@ -17,16 +16,9 @@ const MoviesList: FC<IProps> = () => {
         getMovies(+page);
     }, [page]);
 
-
-    useEffect(() => {
-        getGenres()
-
-    }, []);
-
     return (
-        <div>
+        <div className={css.MoviesListContainer}>
             {movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
-            {genres.map((genre) => <GenreBadge key={genre.id} genre={genre}/>)}
         </div>
     );
 };

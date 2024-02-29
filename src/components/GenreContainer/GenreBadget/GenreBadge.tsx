@@ -1,18 +1,24 @@
-import React from 'react';
-import {FC, PropsWithChildren} from 'react';
-import {IGenre} from "../../../interfaces";
+import React, {FC, PropsWithChildren, useEffect} from 'react';
+
+import {GenreCard} from "../GenreCard";
+import {useAppContext} from "../../../hooks";
+import css from "./GenreBadge.module.css"
 
 interface IProps extends PropsWithChildren {
-    genre: IGenre
+
 }
 
-const GenreBadge: FC<IProps> = ({genre}) => {
-const {id, name} = genre;
+const GenreBadge: FC<IProps> = () => {
+    const {genres, getGenres} = useAppContext();
+
+    useEffect(() => {
+        getGenres()
+
+    }, []);
 
     return (
-        <div>
-            <div>id: {id}</div>
-            <div>name: {name}</div>
+        <div className={css.Main}>
+            {genres.map((genre) => <GenreCard key={genre.id} genre={genre}/>)}
         </div>
     );
 };

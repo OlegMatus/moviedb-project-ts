@@ -1,16 +1,18 @@
 import React from 'react';
 import {FC, PropsWithChildren} from 'react';
 
-interface IProps extends PropsWithChildren {
+import {IGenre} from "../../../interfaces";
+import css from "../GenreBadget/GenreBadge.module.css";
 
+interface IProps extends PropsWithChildren {
+genre: IGenre
 }
 
-const GenreCard: FC<IProps> = () => {
+const GenreCard: FC<IProps> = ({genre}) => {
+const {name} = genre;
 
     return (
-        <div>
-            GenreCard
-        </div>
+            <div className={css.GenreBadge}>{name}</div>
     );
 };
 

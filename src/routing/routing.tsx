@@ -3,7 +3,7 @@ import {createBrowserRouter, Navigate} from "react-router-dom";
 import {MainLayout} from "../layouts";
 import {MoviesPage} from "../pages";
 import {MovieDetailsPage} from "../pages/movieDetailsPage";
-import {GenreCard} from "../components";
+import {GenreBadge, GenreCard} from "../components";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'genres',
-                element: <GenreCard/>
+                element: <GenreBadge/>
             }
         ]
     }
