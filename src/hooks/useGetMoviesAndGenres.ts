@@ -9,7 +9,6 @@ const useGetMoviesAndGenres = (): IContextProps => {
     const [genres, setGenres] = useAppState<IGenre[]>([]);
 
     const getMovies = async (page: number) => {
-
         try {
             const response = await moviesService.getAll(page).then()
             const moviesData: IMovies = response.data;
@@ -26,7 +25,6 @@ const useGetMoviesAndGenres = (): IContextProps => {
     };
 
     const getGenres = async (genreId: number) => {
-
         try {
             const response = await genresService.getAll().then();
             const genresData: IGenres = response.data;
@@ -55,7 +53,7 @@ const useGetMoviesAndGenres = (): IContextProps => {
         movies,
         getGenres,
         getMovies
-    }
+    } as IContextProps
 }
 
 export {
