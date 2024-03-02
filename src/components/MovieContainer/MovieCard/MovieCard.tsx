@@ -19,12 +19,8 @@ const MovieCard: FC<IProps> = ({movie}) => {
                 <Link to={`/movies/${id}`}>
                     <PosterPreview poster_path={poster_path} movie={movie}/>
                 </Link>
-                <div className={css.title_block}>
-                    <b>{original_title}</b>
-                    <StarsRating vote_average={vote_average}/>
-                </div>
-            </div>
-            <div>
+                <StarsRating vote_average={vote_average}/>
+                <b>{original_title}</b>
             </div>
         </div>
     );

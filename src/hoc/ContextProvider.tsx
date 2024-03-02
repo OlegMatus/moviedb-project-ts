@@ -14,11 +14,11 @@ interface IProps extends PropsWithChildren {
 
 const ContextProvider: FC<IProps> = ({children}) => {
     const state = useAppState(null);
-    const {movies, genres, getGenres, getMovies} = useGetMoviesAndGenres();
+    const {movies, genres,moviesByGenres, getGenres, getMovies, getMoviesByGenres, } = useGetMoviesAndGenres();
 
     return (
         <div>
-            <Context.Provider value={{movies, genres, getMovies, getGenres}}>
+            <Context.Provider value={{movies, genres,moviesByGenres, getMovies, getGenres, getMoviesByGenres}}>
                 <ContextState.Provider value={state}>
                     {children}
                 </ContextState.Provider>

@@ -13,12 +13,13 @@ interface IProps extends PropsWithChildren {
 
 const MovieDetailsPage: FC<IProps> = () => {
     const [movieDetails, setMovieDetails] = useAppState<IMovie>(null);
+    // const [movieByGenres, setMovieByGenres] = useAppState<IMovie[]>([]);
     const {id} = useParams();
 
     useEffect(() => {
-        moviesService.getById(+id).then(({data}) => setMovieDetails(data)
-        )
-    }, [id, setMovieDetails]);
+            moviesService.getById(+id).then(({data}) => setMovieDetails(data))
+
+    }, [id, setMovieDetails,]);
 
     return (
         <div className={css.MovieDetailsBlock}>

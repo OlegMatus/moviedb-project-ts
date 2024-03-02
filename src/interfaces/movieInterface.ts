@@ -11,6 +11,7 @@ export interface IMovie extends IMovies {
     popularity: number,
     poster_path: string,
     release_date: string,
+    runtime: number,
     title: string,
     video: boolean,
     vote_average: number,

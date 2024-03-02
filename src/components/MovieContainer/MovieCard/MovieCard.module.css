@@ -5,14 +5,9 @@
     align-items: center;
 }
 .card_block {
-    width: 100%;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-}
-.title_block {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    margin-bottom: 10px;
 }

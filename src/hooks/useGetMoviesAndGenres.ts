@@ -7,11 +7,14 @@ import {useAppState} from "./useAppState";
 const useGetMoviesAndGenres = (): IContextProps => {
     const [movies, setMovies] = useAppState<IMovie[]>([]);
     const [genres, setGenres] = useAppState<IGenre[]>([]);
+    const [moviesByGenres, setMoviesByGenres] = useAppState<IMovie[]>([]);
+    const [selectedGenre, setSelectedGenre] = useAppState(null);
 
     const getMovies = async (page: number, pageSize: number) => {
         try {
             const response = await moviesService.getAll(page, pageSize).then()
             const moviesData: IMovies = response.data;
+
 
             if (moviesData && moviesData.results) {
                 setMovies(moviesData.results);
@@ -38,6 +41,17 @@ const useGetMoviesAndGenres = (): IContextProps => {
             handleAxiosError(error as AxiosError)
         }
     };
+    const getMoviesByGenres = async (genreId: string, page: number) => {
+        try {
+            const response = await moviesService.getByGenres(genreId, page).then();
+            const movies = response.data.results;
+
+            setMoviesByGenres(movies)
+            // const filteredMovies = movies.filter((movie) => movie.genre_ids.includes(+genreId))
+        } catch (e) {
+
+        }
+    }
 
     const handleAxiosError = (error: AxiosError) => {
         if (error.response) {
@@ -51,8 +65,10 @@ const useGetMoviesAndGenres = (): IContextProps => {
     return {
         genres,
         movies,
+        moviesByGenres,
         getGenres,
-        getMovies
+        getMovies,
+        getMoviesByGenres
     } as IContextProps
 }
 
