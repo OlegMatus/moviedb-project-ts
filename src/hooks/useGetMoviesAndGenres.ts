@@ -45,9 +45,9 @@ const useGetMoviesAndGenres = (): IContextProps => {
         try {
             const response = await moviesService.getByGenres(genreId, page).then();
             const movies = response.data.results;
-
             setMoviesByGenres(movies)
-            // const filteredMovies = movies.filter((movie) => movie.genre_ids.includes(+genreId))
+            setSelectedGenre(genreId)
+            console.log(movies);
         } catch (e) {
 
         }

@@ -1,15 +1,35 @@
-import React from 'react';
-import {FC, PropsWithChildren} from 'react';
+import {Avatar, Stack} from "@mui/material";
 
-interface IProps extends PropsWithChildren {
+import {useAppState} from "../../hooks";
 
-}
+const UserInfo = () => {
+    const [userInfo, setUserInfo] = useAppState<boolean>(true);
 
-const UserInfo: FC<IProps> = () => {
+    const handleMouseLeave = () => {
+        setUserInfo(true)
+    };
+
+    const handleMouseEnter = () => {
+        setUserInfo(false)
+    };
 
     return (
-        <div>
-            UserInfo
+        <div style={{position: "static"}}>
+            <Stack
+                direction={"column"}
+                alignItems={"center"}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                    color: 'yellow',
+                    height: 80,
+                    marginLeft: 10,
+                }}
+            >
+                <b style={{color: "blue"}}>SlavaUkraine!</b>
+                <Avatar src="/broken-image.jpg"/>
+                {userInfo && <span>user</span>}
+            </Stack>
         </div>
     );
 };

@@ -1,3 +1,2 @@
-export * from "./GenreBadget/GenreBadge";
+export * from "./GenreBadge/GenreBadge";
 export * from "./GenreCard/GenreCard";
-export * from "./MoviesByGenre"

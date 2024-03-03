@@ -16,7 +16,8 @@ const moviesService = {
             with_genres: genreId,
             page
         }
-    })
+    }),
+    getByQuery: (query: string, page: number) => apiService.get(urls.searchMovie, {params: {query, page}})
 };
 
 export {moviesService};

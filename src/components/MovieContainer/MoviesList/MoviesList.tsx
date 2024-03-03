@@ -1,16 +1,25 @@
-import React, {FC, PropsWithChildren, useEffect} from 'react';
+import React, {FC, PropsWithChildren, useEffect, useState} from 'react';
 
 import {MovieCard} from "../MovieCard";
-import {useAppContext, useAppQuery} from "../../../hooks";
+import {useAppContext} from "../../../hooks";
 import css from "./MoviesList.module.css"
+import {IMovie} from "../../../interfaces";
+import {MoviesByGenre} from "../MoviesByGenre";
 
 interface IProps extends PropsWithChildren {
-
+    page: number,
+    movies: IMovie[],
+    getMovies: (page: number) => void
 }
 
-const MoviesList: FC<IProps> = () => {
-    const {movies, getMovies, genres, getGenres} = useAppContext();
-    const {page} = useAppQuery();
+const MoviesList: FC<IProps> = ({page, movies, getMovies}) => {
+    const [selectedGenre, setSelectedGenre] = useState<number>(null);
+    const {moviesByGenres,getMoviesByGenres} = useAppContext();
+
+    const handleGenreClick = (genreId: number) => {
+        setSelectedGenre(genreId);
+        getMoviesByGenres((genreId).toString(), page)
+    }
 
     useEffect(() => {
         getMovies(+page);
@@ -18,7 +27,11 @@ const MoviesList: FC<IProps> = () => {
 
     return (
         <div className={css.MoviesListContainer}>
-            {movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
+                {selectedGenre !== null ? (
+                    <MoviesByGenre moviesByGenres={moviesByGenres} onGenreClick={handleGenreClick}/>
+                ) : (
+                    movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)
+                )}
         </div>
     );
 };

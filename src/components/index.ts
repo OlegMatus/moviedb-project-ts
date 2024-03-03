@@ -3,7 +3,6 @@ export * from "./Header/Header";
 export * from "./MovieContainer";
 export * from "./Poster";
 export * from "./Rating";
-export * from "./UserContainer"
-
+export * from "./UserContainer";
 
 
