@@ -5,7 +5,8 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: url("https://cdn.dribbble.com/userupload/3149713/file/original-1446c447326bf4bc7733c2f029d97942.png?resize=1200x900&vertical=center") center/cover no-repeat fixed;
+    background: powderblue;
+    /*background: url("https://cdn.dribbble.com/userupload/3149713/file/original-1446c447326bf4bc7733c2f029d97942.png?resize=1200x900&vertical=center") center/cover no-repeat fixed;*/
     font-family: 'Segoe UI Historic', sans-serif;
 }
 

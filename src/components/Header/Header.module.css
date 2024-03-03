@@ -3,7 +3,7 @@ body{
 }
 .Main{
     width: 100%;
-    background: url("https://cdn.dribbble.com/userupload/3149718/file/original-cfb73d80e2b1290438e3109991d4e05c.png?resize=1200x900&vertical=center");
+    /*background: url("https://cdn.dribbble.com/userupload/3149718/file/original-cfb73d80e2b1290438e3109991d4e05c.png?resize=1200x900&vertical=center");*/
     display: flex;
     align-items: center;
     justify-content: center;
