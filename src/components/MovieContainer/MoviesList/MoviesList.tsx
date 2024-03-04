@@ -14,7 +14,7 @@ interface IProps extends PropsWithChildren {
 
 const MoviesList: FC<IProps> = ({page, movies, getMovies}) => {
     const [selectedGenre, setSelectedGenre] = useState<number>(null);
-    const {moviesByGenres,getMoviesByGenres} = useAppContext();
+    const {moviesByGenres, getMoviesByGenres, getGenres} = useAppContext();
 
     const handleGenreClick = (genreId: number) => {
         setSelectedGenre(genreId);
@@ -23,15 +23,16 @@ const MoviesList: FC<IProps> = ({page, movies, getMovies}) => {
 
     useEffect(() => {
         getMovies(+page);
+        getGenres()
     }, [page]);
 
     return (
         <div className={css.MoviesListContainer}>
-                {selectedGenre !== null ? (
-                    <MoviesByGenre moviesByGenres={moviesByGenres} onGenreClick={handleGenreClick}/>
-                ) : (
-                    movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)
-                )}
+            {selectedGenre !== null ? (
+                <MoviesByGenre moviesByGenres={moviesByGenres} onGenreClick={handleGenreClick}/>
+            ) : (
+                movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)
+            )}
         </div>
     );
 };

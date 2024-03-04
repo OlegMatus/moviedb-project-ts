@@ -1,33 +1,26 @@
-import React, {FC, PropsWithChildren} from 'react';
+import * as React from 'react';
+import {FC, PropsWithChildren} from 'react';
 import {NavLink} from "react-router-dom";
+
+import Switch from '@mui/material/Switch';
 
 import css from "./Header.module.css"
 import {UserInfo} from "../UserContainer";
 import {useThemeContext} from "../../hooks";
-import {alpha, styled, Switch} from "@mui/material";
-
-
-    const SwitchTheme = styled(Switch)(({theme}) => ({
-        '& .MuiSwitch-switchBase.Mui-checked': {
-            color: '#303F9F',
-            '&:hover': {
-                backgroundColor: alpha('#E2EAF4', theme.palette.action.hoverOpacity),
-            },
-        },
-    }));
-    const label = {inputProps: {'aria-label': 'Color switch demo'}};
 
 interface IProps extends PropsWithChildren {
-
+    toggleTheme: () => void
 }
 
-const Header: FC<IProps> = () => {
-    const {theme, switchTheme} = useThemeContext();
-    // const theme = useTheme();
+const Header: FC<IProps> = ({toggleTheme}) => {
+    const {theme} = useThemeContext();
 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('Current Theme:', theme);
+        toggleTheme()
+    };
 
     return (
-
         <div className={css.Main}>
             <div className={css.Header}>
                 <NavLink to={'movies'}>MOVIES</NavLink>
@@ -36,10 +29,16 @@ const Header: FC<IProps> = () => {
             </div>
             <div className={css.Switch}>
                 <UserInfo/>
-                <SwitchTheme {...label} checked={theme === 'dark'} onChange={switchTheme}/>
+                <Switch
+                    checked={theme === 'dark'}
+                    onChange={handleChange}
+                    inputProps={{'aria-label': 'controlled'}}
+                />
             </div>
         </div>
     );
 };
 
-export {Header};
+export {
+    Header
+};

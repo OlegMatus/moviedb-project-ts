@@ -44,8 +44,10 @@ const SearchMovie = () => {
                     <input type="text" placeholder={'searchMovie'} value={searchQuery} onChange={handleChange}/>
                     <button onClick={handleSearch}>search</button>
                 </div>
-                <div className={css.movies_block}>
-                    {searchResults.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
+                <div>
+                    <div className={css.movies_block}>
+                        {searchResults.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
+                    </div>
                 </div>
             </div>
             <div>

@@ -1,2 +1,2 @@
-export * from "./GenreBadge/GenreBadge";
+export * from "./GenreList/GenreList";
 export * from "./GenreCard/GenreCard";

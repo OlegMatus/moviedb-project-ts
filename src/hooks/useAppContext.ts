@@ -1,27 +1,22 @@
 import {useContext} from "react";
 
-import {Context, ContextState, ContextTheme, ThemeType} from "../hoc";
+import {Context, ContextState} from "../hoc";
 import {IContextProps, IState} from "../interfaces";
 import {IStateResult} from "../types";
-// import {ContextTheme} from "../hoc/ContextThemeProvider";
+import {ThemeContext, ThemeContextProps} from "../hoc/ContextThemeProvider";
 
 const useAppContext = (): IContextProps => useContext(Context)
 const useStateContext = (): IStateResult<IState> => useContext(ContextState)
-// const useThemeContext = () => useContext(ContextTheme);
-// const useThemeContext = () => {
-//     const context = useContext(ContextTheme);
-//     if (!context) {
-//         throw new Error('useThemeContext повинно використовуватися в середовищі ContextThemeProvider');
-//     }
-//     return context;
-// };
-interface IUseThemeContext {
-    theme: ThemeType;
-    switchTheme: () => void;
-}
-const useThemeContext = (): IUseThemeContext => {
-    return useContext(ContextTheme) as IUseThemeContext;
+const useThemeContext = (): ThemeContextProps => {
+    const useThemeContext = useContext(ThemeContext);
+
+    if (!useThemeContext) {
+        throw new Error('useThemeContext must be used within a ThemeProvider');
+    }
+
+    return useThemeContext;
 };
+
 export {
     useAppContext,
     useStateContext,

@@ -8,7 +8,6 @@ const useGetMoviesAndGenres = (): IContextProps => {
     const [movies, setMovies] = useAppState<IMovie[]>([]);
     const [genres, setGenres] = useAppState<IGenre[]>([]);
     const [moviesByGenres, setMoviesByGenres] = useAppState<IMovie[]>([]);
-    const [selectedGenre, setSelectedGenre] = useAppState(null);
 
     const getMovies = async (page: number, pageSize: number) => {
         try {
@@ -29,7 +28,7 @@ const useGetMoviesAndGenres = (): IContextProps => {
 
     const getGenres = async () => {
         try {
-            const response = await genresService.getAll().then();
+            const response = await genresService.getAll();
             const genresData: IGenres = response.data;
 
             if (genresData && genresData.genres) {
@@ -43,10 +42,9 @@ const useGetMoviesAndGenres = (): IContextProps => {
     };
     const getMoviesByGenres = async (genreId: string, page: number) => {
         try {
-            const response = await moviesService.getByGenres(genreId, page).then();
+            const response = await moviesService.getByGenres(genreId, page);
             const movies = response.data.results;
             setMoviesByGenres(movies)
-            setSelectedGenre(genreId)
             console.log(movies);
         } catch (e) {
 

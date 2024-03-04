@@ -31,20 +31,6 @@ const MoviesByGenre: FC<IProps> = ({moviesByGenres, onGenreClick}) => {
                 ))}
             </div>
         </div>
-        // <div className={css.MovieCard}>
-        //     <div>
-        //         {moviesByGenres.map(movie => <div>
-        //
-        //             <div className={css.card_block}>
-        //                 <Link to={`/movies/${movie.id}`}>
-        //                     <PosterPreview poster_path={movie.poster_path} movie={movie}/>
-        //                 </Link>
-        //                 <StarsRating vote_average={movie.vote_average}/>
-        //                 <b>{movie.original_title}</b>
-        //             </div>
-        //         </div>)}
-        //     </div>
-        // </div>
     );
 };
 

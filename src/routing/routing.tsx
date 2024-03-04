@@ -4,7 +4,7 @@ import {MainLayout} from "../layouts";
 import {MoviesPage} from "../pages";
 import {MovieDetailsPage} from "../pages";
 import {GenresPage} from "../pages";
-import {GenreBadge, SearchMovie} from "../components";
+import {GenreList, SearchMovie} from "../components";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'genres/:id',
-                element: <GenreBadge/>
+                element: <GenreList/>
             },
             {
                 path: 'searchMovie',
